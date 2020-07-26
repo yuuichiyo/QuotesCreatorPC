@@ -11,7 +11,7 @@ for(let i = 1900; i <= 2050; i++) {
 };
     
 }
-yearDie();
+born();
 
 
 function yearDie(){
@@ -28,6 +28,6 @@ for(let i = 2000; i <= 2100; i++) {
     
 }
 
-born();
+yearDie();
 
 
