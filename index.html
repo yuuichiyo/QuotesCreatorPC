@@ -6,10 +6,20 @@
     <link rel="stylesheet" href="common.css">
         
     <title>QuotesCreatorPC版</title>
+
+<script src="common/js/header.js"></script>
+<script src="common/js/footer.js"></script>
+
 </head>
-<?php require("header.html"); ?>
+
+<!-- PHPでのheader表示はコメントアウト中-->
+<?php //require("header.html"); ?>
+<!-- Javascriptでheader表示-->
+
 
 <body>
+<script type="text/javascript">writeHeader("./");</script> 
+
 
     <h1>Quotes Creator PC Version</h1>
     <p>本サイトはオリジナルの名言を制作するためのWebサイトとなります。</p>
@@ -75,13 +85,18 @@
 
 </form>
 
- <script type="text/javascript" src="./year.js">
- <script type="text/javascript" src="./yearDie.js">
- aaa();
- born();
-        </script>
+<!-- jsでの年代カウント-->
+ <script type="text/javascript" src="year.js"></script>
 
-<?php require("footer.html"); ?>
+
+
+
+<!-- PHPでのfooter表示はコメントアウト中-->
+ <?php //require("footer.html"); ?>
+<!-- Javascriptでfooter表示-->
+<script type="text/javascript" style>writeFooter("./");</script> 
+
+
 
 </body>
 </html>
