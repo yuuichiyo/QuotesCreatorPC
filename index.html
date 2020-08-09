@@ -29,33 +29,48 @@
 
     <p>※注意　誹謗中傷、プライバシー侵害、名誉棄損、その他の迷惑行為や公共の不利益を被る内容につきましては、ご遠慮のほどお願いいたします。</p>
 
-<form method="post" action="sample.cgi">
+<form method="post" action="sample.cgi" name="form1">
 <p>
     <label>お名前<br>
-        <input type="text" name="name" placeholder="ニックネーム等も可" size="24" maxlength ="24">
+        <input type="text" name="name" id="name" value="" placeholder="ニックネーム等も可" size="22" maxlength ="12">
     </label>
 </p>
+
+<p>
+    <label>お名前（英語）<br>
+        <input type="text" name="name" id="nameEng" value="" placeholder="ニックネーム等も可" size="22" maxlength="15">
+    </label>
+</p>   
 
 <p>
     <label>職業<br>
-        <input type="text">
-        <input type="text">
+        <input type="text" name="job" id="job" value="" placeholder="自称も可" size="40" maxlength="22">
     </label>
 </p>
 
+<p>
+    <label>
+        <input type="radio" name="life" id="living"       onchange="onRadioButtonChange();"  checked>存命する
+        <input type="radio" name="life" value="desperate"   disabled>亡命する
+    </label>
+    <label>
+        <input type="radio" name="life" id="noLiving"     onchange="onRadioButtonChange();"  >存命しない
+        <input type="radio" name="life" value="desperate"   disabled>亡命しない
+    </label>
 
+</p>
 <p>
     <label>存命期間
 
 <!--
-年代をjsで書きたい
+年代をjsでカウントする
 -->
-    <select name="yearBorn" id="yearBorn"></select>
+    <select name="lifeBegin" id="lifeBegin"></select>
     
        ～
     
     
-    <select name="yearDie" id="yearDie"></select>
+    <select name="lifeEnd" id="lifeEnd"></select>
     </label>
 </p>
 
