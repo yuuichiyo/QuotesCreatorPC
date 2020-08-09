@@ -7,20 +7,67 @@
         
     <title>QuotesCreatorPC版</title>
 
-<script src="common/js/header.js"></script>
-<script src="common/js/footer.js"></script>
+
+
 
 </head>
 
 <!-- PHPでのheader表示はコメントアウト中-->
-<?php //require("header.html"); ?>
-<!-- Javascriptでheader表示-->
+<!-- <?php require("header.html"); ?> -->
+
+
+
+
+<!-- header -->
+<header id="header">
+
+<!--スタイルシートの読み込み 
+-->
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="../common.css">
+
+<!--オリジナルYロゴ左上配置
+-->
+<a href="index.html">
+ <img src="logo/My_/MyLogo.png" alt="MyLogo" id="MyLogo">
+</a><br>
+
+<!--ナビゲーションロゴ配置
+-->
+<nav class="global-header_main_list">
+
+<a href="index.html">
+ <img src="logo/navi/naviHome.png" alt="ホーム" class="global-header_main_list_item">
+</a>
+
+<a href="collection.html">
+ <img src="logo/navi/naviCollection.png" alt="作品集" class="global-header_main_list_item">
+</a>
+
+<a href="contact.html">
+ <img src="logo/navi/naviContact.png" alt="お問い合わせ" class="global-header_main_list_item">
+</a>
+
+<a href="precautions.html">
+ <img src="logo/navi/naviPrecautions.png" alt="注意事項" class="global-header_main_list_item" id="adjustPrecautions">
+</a>
+
+<a href="another.html">
+ <img src="logo/navi/naviAnother.png" alt="その他" class="global-header_main_list_item">
+</a>
+</nav>
+
+</header>
+<!-- /header -->
+
 
 
 <body>
-<script type="text/javascript">writeHeader("./");</script> 
 
+<div id="header"></div>
 
+<!--main -->
+<main>
     <h1>Quotes Creator PC Version</h1>
     <p>本サイトはオリジナルの名言を制作するためのWebサイトとなります。</p>
     <p>必要なものはあなたの写真（別のものでも大丈夫）とあなた自身の伝記に基づく名言（迷言でも可）です。</p>
@@ -104,17 +151,74 @@
 </form>
 
 <!-- jsでの年代カウント-->
- <script type="text/javascript" src="year.js"></script>
+ <!-- <script type="text/javascript" src="year.js"></script> -->
 
-
-
+<!-- /main -->
+</main>
 
 <!-- PHPでのfooter表示はコメントアウト中-->
- <?php //require("footer.html"); ?>
-<!-- Javascriptでfooter表示-->
-<script type="text/javascript" style>writeFooter("./");</script> 
+ <!-- <?php //require("footer.html"); ?> -->
 
 
+
+
+
+
+<!-- footer -->
+<footer id="footer">
+  <p class="pageTop"><a href="#header"><img src="images/footer/btn_patetop01.gif" alt="page top"></a></p>
+  <!-- footerContent -->
+  <div id="footerContent">
+    <nav id="footerLinks">
+      <ul>
+        <li><a href="{$root}hoge.html">サイトマップ</a></li>
+        <li><a href="{$root}hoge.html">お問い合わせ</a></li>
+        <li><a href="{$root}hoge.html">サイトポリシー</a></li>
+      </ul>
+
+
+<link rel="stylesheet" href="footer.css">
+
+<div id="footerSNS">
+<a href="https://www.facebook.com/yuuichiyo">
+ <img src="logo/icon/facebook_icon.jpg" alt="facebookLink">
+</a>
+<a href="https://github.com/yuuichiyo">
+ <img src="logo/icon/github_icon.jpg" alt="githubLink">
+</a>
+<a href="https://www.instagram.com/yuuichiyo/">
+ <img src="logo/icon/instagralm_icon.jpg" alt="instagralmLink">
+</a>
+<a href="line.html">
+ <img src="logo/icon/LINE_icon.jpg" alt="LINELink">
+</a>
+<a href="https://note.com/yuuichiyo">
+ <img src="logo/icon/note_icon.jpg" alt="noteLink">
+</a>
+<a href="https://twitter.com/yuuichiyo">
+ <img src="logo/icon/Twitter_icon.jpg" alt="TwitterLink">
+</a>
+<a href="https://weibo.com/yuuichiyo">
+ <img src="logo/icon/weibo_icon.jpg" alt="weiboLink">
+</a>
+<a href="https://www.youtube.com/channel/UCQ7aODvYQ7A4KRCZosbuv5Q/featured?disable_polymer=1">
+ <img src="logo/icon/youtube_icon.jpg" alt="youtubeLink">
+</a>
+</div>
+
+ </nav>
+    <div id="copyright">
+      <p class="logo"><img src="{$root}images/footer/logo_footer01.png" alt="footer_logo"></p>
+      <p>&copy;コピーライト</p>
+    </div>
+  </div>
+  <!-- /footerContent --> 
+
+<!-- /footer -->
+
+
+<!--  キャンバスのjsファイル読み込み-->
+<script type="text/javascript" src="canvas.js"></script>
 
 </body>
 </html>
