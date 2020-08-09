@@ -1,33 +1,34 @@
+// 存命期間をoptionで表示する
 function born(){
     
-    const yearBorn = document.getElementById('yearBorn');
+    const lifeBegin = document.getElementById('lifeBegin');
 
 document.createElement('option')
 for(let i = 1900; i <= 2050; i++) {
     let option = document.createElement('option');
     option.setAttribute('value',i);
     option.innerHTML = i + '年' ;
-    yearBorn.appendChild(option);
+    lifeBegin.appendChild(option);
 };
     
 }
 born();
 
 
-function yearDie(){
+function Die(){
     
-    const yearDie = document.getElementById('yearDie');
+    const lifeEnd = document.getElementById('lifeEnd');
 
 document.createElement('option')
 for(let i = 2000; i <= 2100; i++) {
     let option = document.createElement('option');
     option.setAttribute('value',i);
     option.innerHTML = i + '年' ;
-    yearDie.appendChild(option);
+    lifeEnd.appendChild(option);
 };
     
 }
 
-yearDie();
+Die();
 
 
