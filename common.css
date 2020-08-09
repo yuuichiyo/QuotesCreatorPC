@@ -1,5 +1,31 @@
 
-body{
+main{
     background-image :url("logo/background/backgroundSkyblue.png");
 }
     
+/*header*/
+#adjustPrecautions{ 
+    margin-bottom:-5px;
+}
+
+a{
+    text-decoration: none;
+}
+
+#MyLogo{
+    height:150px;
+}
+/*/header*/
+
+/*footer*/
+#footerLinks img{
+    height:100px;
+    
+}
+
+#footerSNS {
+    width:850px;
+    height:100px;
+    background-color:white;
+}
+/*/footer*/
