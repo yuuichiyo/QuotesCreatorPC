@@ -28,7 +28,6 @@ for(let i = 2000; i <= 2100; i++) {
 };
   
 }
-
 Die();
 
 
@@ -91,6 +90,8 @@ function canvasDraw(imgSrc) {
     addTextName();
     addTextJob();
     addTextLife();
+    addTextQuotation();
+    addTextQuotationEng();
 
     // canvasを画像に変換
     var data = canvas.toDataURL('image/jpeg');
@@ -119,16 +120,16 @@ function addTextName() {
 
   // 名前の背景と文字を指定
   ctx.fillStyle = 'rgba(115, 78, 48, 0.3)';
-  ctx.fillRect(0, 0, 400, 200);
+  ctx.fillRect(0, 0, 420, 180);
   
   ctx.font = "bold 33px 'MS Pゴシック'";
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = '#FFF';
-  ctx.fillText(name, 200, 60);
+  ctx.fillText(name, 220, 60);
 
   ctx.font = "25px 'ＭＳ 明朝'";
-  ctx.fillText(nameEng, 200, 100);
+  ctx.fillText(nameEng, 220, 120);
 }
 
   // ２．職業を表示
@@ -140,11 +141,11 @@ function addTextName() {
     ctx.fillStyle = 'rgba(115, 78, 48, 0.3)';
     ctx.fillRect(800, 0, 480, 100);
     
-    ctx.font = "20px 'MS Pゴシック'";
+    ctx.font = "24px 'MS Pゴシック'";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = '#FFF';
-    ctx.fillText(job, 1040, 30);
+    ctx.fillText(job, 1040, 40);
   
     
   }  
@@ -154,20 +155,70 @@ function addTextName() {
     
   
     // 存命期間の文字を指定
-    ctx.font = "18px 'MS 明朝'";
+    ctx.font = "20px 'MS 明朝'";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = '#FFF';
-    ctx.fillText(lifeBegin +' ～', 1040, 60);
-    
+
     // 「存命しない」のときだけ表示する
     var noLiving = document.form1.noLiving.checked;
     if(noLiving == true){
-    var lifeEnd   = document.getElementById('lifeEnd').value;
-    ctx.fillText(lifeEnd, 1100, 60);
+      var lifeEnd   = document.getElementById('lifeEnd').value;
+      ctx.fillText(lifeBegin + ' ～ '+ lifeEnd, 1040, 80);
+      }else{
+    ctx.fillText(lifeBegin +' ～ ', 1040, 80);
     }
+    
+    
+    
 
   }  
   // ４．名言を表示
+  function addTextQuotation() {
+    var quotation = document.getElementById('quotation').value;
 
+    // 名言の背景と文字を指定
+    ctx.fillStyle = 'rgba(115, 78, 48, 0.3)';
+    ctx.fillRect(0, 520, 1280, 720);
+    
+    ctx.font = "bold 40px sans-serif, '游ゴシック体', 'Hiragino Kaku Gothic ProN'";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#FFF';
+    
+
+    // 文字数が30文字を超えたら、二行で表示する
+    if(quotation.length > 30){
+
+    const strEarly = quotation.substr(0, 30);
+    ctx.fillText(strEarly, 640, 550);
+
+    const strLate = quotation.substr(31, quotation.length);
+    ctx.fillText(strLate, 640, 595);
+
+    }else{
+      ctx.font = "bold 42px 'cursive'";
+      ctx.fillText(quotation, 640, 570);
+    }
+    
+  }
+
+  // ５．名言の文字英語版
+  function addTextQuotationEng() {
+    var quotationEng = document.getElementById('quotationEng').value;
+
+    
+
+    ctx.font = "30px 'cursive'";   
+    ctx.fillStyle = '#0FF';
+    ctx.fillText(quotationEng, 640, 660);
+    
+    
+    
+  }
+  
+  // ６．手入力された文字をカウントする
+  function countLength(text, field) {
+    document.getElementById(field).innerHTML = text.length + "文字";
+  }
 

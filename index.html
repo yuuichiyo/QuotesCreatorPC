@@ -123,10 +123,17 @@
 
 <p>
     <label>名言<br>
-        <textarea name="Quotation" id="" cols="40" rows="3"></textarea>
+        <textarea name="quotation" id="quotation" cols="60" rows="3" maxlength="50" onKeyUp="countLength(value, 'textlength1');" ></textarea>
     </label>
 </p>
+<p id="textlength1">0文字</p>
 
+<p>
+    <label>名言（英語）<br>
+        <textarea name="quotationEng" id="quotationEng" cols="60" rows="3" maxlength="120" onKeyUp="countLength(value, 'textlength2');"></textarea>
+    </label>
+</p>
+<p id="textlength2">0文字</p>
 
 <p>
     <label>背景色の設定
