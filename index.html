@@ -10,27 +10,35 @@
 
 
 
-</head>
+
 
 <!-- PHPでのheader表示はコメントアウト中-->
 <!-- <?php require("header.html"); ?> -->
 
 
-
-
-<!-- header -->
-<header id="header">
+<!-- 翻訳API -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <!--スタイルシートの読み込み 
 -->
 <link rel="stylesheet" href="header.css">
 <link rel="stylesheet" href="../common.css">
 
+
+</head>
+<body>
+<!-- header -->
+<header id="header">
+
+
+
 <!--オリジナルYロゴ左上配置
 -->
 <a href="index.html">
  <img src="logo/My_/MyLogo.png" alt="MyLogo" id="MyLogo">
-</a><br>
+</a>
+<!-- <h2>YY's site</h2> -->
+
 
 <!--ナビゲーションロゴ配置
 -->
@@ -44,7 +52,7 @@
  <img src="logo/navi/naviCollection.png" alt="作品集" class="global-header_main_list_item">
 </a>
 
-<a href="contact.html">
+<a href="contact/contact.html">
  <img src="logo/navi/naviContact.png" alt="お問い合わせ" class="global-header_main_list_item">
 </a>
 
@@ -62,7 +70,7 @@
 
 
 
-<body>
+
 
 <div id="header"></div>
 
@@ -123,22 +131,54 @@
 
 <p>
     <label>名言<br>
-        <textarea name="quotation" id="quotation" cols="60" rows="3" maxlength="50" onKeyUp="countLength(value, 'textlength1');" ></textarea>
+        <input type="text" name="quotation" id="quotation" value="" maxlength="66" onKeyUp="countLength(value, 'textlength1');" style=' font-size:0.9em; width:1200px; height:30px;' >
+        
     </label>
 </p>
 <p id="textlength1">0文字</p>
 
 <p>
     <label>名言（英語）<br>
-        <textarea name="quotationEng" id="quotationEng" cols="60" rows="3" maxlength="120" onKeyUp="countLength(value, 'textlength2');"></textarea>
+        <!-- <input type="text" name="quotationEng" id="quotationEng" value="" maxlength="50" onKeyUp="countLength(value, 'textlength2');"> -->
+        <div id="quotationEng"></div>
     </label>
 </p>
-<p id="textlength2">0文字</p>
+
 
 <p>
     <label>背景色の設定
-        <input type="color" >
+        <input type="color" value="#ff0000" id="colorWell"  >
     </label>
+</p>
+
+
+
+
+  
+  
+<!-- 終わり -->
+
+
+<p>
+    <label>画像の拡大縮小設定（挙動難解）
+
+
+    <select name="pw" id="pw"></select>
+    
+    <select name="ph" id="ph"></select>
+    </label>
+</p>
+
+<p>
+    // ↑横長なら一桁と小数点で縦横比を打ち込む 
+    <br>
+
+    // ↑正方形は一桁と小数点でpWに*5前後、ただし画像サイズに左右される
+     <br>
+    // ↑縦長なら一桁小数点でpWに*15前後、ただし画像サイズに左右される
+    <br>
+
+
 </p>
 
 <p>
@@ -150,7 +190,7 @@
         <canvas id="canvas"></canvas>
     </label>
 </p>
-<p><div id="result"></div></p>
+<div id="product"><div id="result"></div></div>
 
 <input type="submit" name="botan" value="send">
 
@@ -215,7 +255,7 @@
 
  </nav>
     <div id="copyright">
-      <p class="logo"><img src="{$root}images/footer/logo_footer01.png" alt="footer_logo"></p>
+      
       <p>&copy;コピーライト</p>
     </div>
   </div>
@@ -226,6 +266,8 @@
 
 <!--  キャンバスのjsファイル読み込み-->
 <script type="text/javascript" src="canvas.js"></script>
+<!--  翻訳APIのjsファイル読み込み-->
+<script type="text/javascript" src="translatorAPI.js"></script>
 
 </body>
 </html>
