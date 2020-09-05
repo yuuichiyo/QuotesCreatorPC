@@ -56,13 +56,20 @@ a{
 }
 
 /*/header*/
-
-h2{
-    font-size:100px;
+h2 img{
+    float:left;
     
+}
+span{
+    font-size:110px;
+   vertical-align: middle;
+   font-family: Impact,Charcoal;
+   letter-spacing: 0.5em;
+   
 }
 
 #product {
+    
     display:flex;
     justify-content:start;
 }
@@ -76,6 +83,11 @@ h2{
 
 
 /*footer*/
+
+.pageTop img{
+    height:100px;
+}
+
 #footerLinks img{
     height:80px;
     

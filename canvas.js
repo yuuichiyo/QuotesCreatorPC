@@ -6,7 +6,7 @@ function born(){
   const lifeBegin = document.getElementById('lifeBegin');
 
 document.createElement('option')
-for(let i = 1900; i <= 2050; i++) {
+for(let i = 1600; i <= 2050; i++) {
   let option = document.createElement('option');
   option.setAttribute('value',i);
   option.innerHTML = i + '年' ;
@@ -22,7 +22,7 @@ function Die(){
   const lifeEnd = document.getElementById('lifeEnd');
 
 document.createElement('option')
-for(let i = 2000; i <= 2100; i++) {
+for(let i = 1600; i <= 2100; i++) {
   let option = document.createElement('option');
   option.setAttribute('value',i);
   option.innerHTML = i + '年' ;
@@ -108,7 +108,7 @@ file.addEventListener('change', loadLocalImage, false);
 // Canvas上に画像を表示する
 function canvasDraw(imgSrc) {
   // canvas内の要素をクリアする
-  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  // ctx.clearRect(0, 0, canvasWidth, canvasHeight);
   
   // canvas上に画像を表示
   var img = new Image();
@@ -172,7 +172,12 @@ function canvasDraw(imgSrc) {
 ctx.drawImage(img, 0, 0, this.width, this.height, 
       Math.abs(canvasWidth-(this.width * (canvasHeight / this.height)/(1+0.1*portraitHeight)))/2, 
       Math.abs(canvasHeight-(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth)))/2, 
+
+    
+
       (this.width * (canvasHeight / this.height)/(1+0.1*portraitHeight)),(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth))
+
+
        );
 
       // 二日間に渡る 画像中央表示の挙動の調査結論
@@ -216,6 +221,8 @@ ctx.drawImage(img, 0, 0, this.width, this.height,
     document.getElementById('result').appendChild(dlLink);
     
     
+
+    
   }
 
 }
@@ -226,8 +233,21 @@ function addTextName() {
   var name = document.getElementById('name').value;
   var nameEng = document.getElementById('nameEng').value;
   
+  // nameをサニタイジング（仮）
+  name.replace(/&/g,"&amp;")
+  .replace(/"/g,"&quot;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;");
+  
+
+  // nameEngをサニタイジング（仮）
+  nameEng.replace(/&/g,"&amp;")
+  .replace(/"/g,"&quot;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;");
+
   // 名前の背景と文字を指定
-  ctx.fillStyle = 'rgba(115, 78, 48, 0.3)';
+  ctx.fillStyle = 'rgba(115, 78, 48, 0.5)';
   ctx.fillRect(0, 0, 420, 180);
   
   ctx.font = "bold 33px 'MS Pゴシック'";
@@ -246,10 +266,15 @@ function addTextName() {
   function addTextJob() {
     var job = document.getElementById('job').value;
     
+    // jobをサニタイジング（仮）
+  job.replace(/&/g,"&amp;")
+  .replace(/"/g,"&quot;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;");
   
     // 職業の背景と文字を指定
     
-    ctx.fillStyle = 'rgba(115, 78, 48, 0.3)';
+    ctx.fillStyle = 'rgba(115, 78, 48, 0.5)';
     ctx.fillRect(800, 0, 480, 100);
     
     ctx.font = "24px 'MS Pゴシック'";
@@ -288,9 +313,15 @@ function addTextName() {
   function addTextQuotation() {
     var quotation = document.getElementById('quotation').value;
 
+    // quotationをサニタイジング（仮）
+  quotation.replace(/&/g,"&amp;")
+  .replace(/"/g,"&quot;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;");
+
     // 名言の背景と文字を指定
     
-    ctx.fillStyle = 'rgba(115, 78, 48, 0.3)';
+    ctx.fillStyle = 'rgba(115, 78, 48, 0.5)';
     ctx.fillRect(0, 520, 1280, 720);
     
     ctx.font = "bold 36px sans-serif, '游ゴシック体', 'Hiragino Kaku Gothic ProN'";
@@ -350,6 +381,8 @@ var defaultColor = "#000000";
 window.addEventListener("load", startup, false);
 
 function startup() {
+  // カラーを選択するタイミングでCanvas内の履歴を削除
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
   colorWell = document.querySelector("#colorWell");
   colorWell.value = defaultColor;
   colorWell.addEventListener("input", updateFirst, false);

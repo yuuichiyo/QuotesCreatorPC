@@ -34,10 +34,12 @@
 
 <!--オリジナルYロゴ左上配置
 -->
+<h2>
 <a href="index.html">
  <img src="logo/My_/MyLogo.png" alt="MyLogo" id="MyLogo">
 </a>
-<!-- <h2>YY's site</h2> -->
+ <span>　YY's site</span>
+</h2>
 
 
 <!--ナビゲーションロゴ配置
@@ -48,7 +50,7 @@
  <img src="logo/navi/naviHome.png" alt="ホーム" class="global-header_main_list_item">
 </a>
 
-<a href="collection.html">
+<a href="collection/collection.html">
  <img src="logo/navi/naviCollection.png" alt="作品集" class="global-header_main_list_item">
 </a>
 
@@ -163,19 +165,20 @@
     <label>画像の拡大縮小設定（挙動難解）
 
 
-    <select name="pw" id="pw"></select>
+    pW<select name="pw" id="pw"></select>
     
-    <select name="ph" id="ph"></select>
+    pH<select name="ph" id="ph"></select>
     </label>
 </p>
 
 <p>
-    // ↑横長なら一桁と小数点で縦横比を打ち込む 
+
+    // ↑横長の画像の場合、一桁の整数で縦横比を打ち込む。ただし、画像サイズに左右される。
     <br>
 
-    // ↑正方形は一桁と小数点でpWに*5前後、ただし画像サイズに左右される
+    // ↑正方形の画像の場合、pWに 5 前後、ただし画像サイズに左右される。
      <br>
-    // ↑縦長なら一桁小数点でpWに*15前後、ただし画像サイズに左右される
+    // ↑縦長の画像の場合、pWに 15 前後、ただし画像サイズに左右される。
     <br>
 
 
@@ -213,42 +216,42 @@
 
 <!-- footer -->
 <footer id="footer">
-  <p class="pageTop"><a href="#header"><img src="images/footer/btn_patetop01.gif" alt="page top"></a></p>
+  <p class="pageTop"><a href="#header"><img src="logo/arrow.png" alt="page top"></a></p>
   <!-- footerContent -->
   <div id="footerContent">
     <nav id="footerLinks">
       <ul>
-        <li><a href="{$root}hoge.html">サイトマップ</a></li>
-        <li><a href="{$root}hoge.html">お問い合わせ</a></li>
-        <li><a href="{$root}hoge.html">サイトポリシー</a></li>
+
+        <li><a href="contact/contact.html">お問い合わせ</a></li>
+        <li><a href="precautions.html">サイトポリシー</a></li>
       </ul>
 
 
 <link rel="stylesheet" href="footer.css">
 
 <div id="footerSNS">
-<a href="https://www.facebook.com/yuuichiyo">
+<a href="https://www.facebook.com/yuuichiyo" target = "_blank">
  <img src="logo/icon/facebook_icon.jpg" alt="facebookLink">
 </a>
-<a href="https://github.com/yuuichiyo">
+<a href="https://github.com/yuuichiyo" target = "_blank">
  <img src="logo/icon/github_icon.jpg" alt="githubLink">
 </a>
-<a href="https://www.instagram.com/yuuichiyo/">
+<a href="https://www.instagram.com/yuuichiyo/" target = "_blank">
  <img src="logo/icon/instagralm_icon.jpg" alt="instagralmLink">
 </a>
-<a href="line.html">
+<a href="line.html" target = "_blank">
  <img src="logo/icon/LINE_icon.jpg" alt="LINELink">
 </a>
-<a href="https://note.com/yuuichiyo">
+<a href="https://note.com/yuuichiyo" target = "_blank">
  <img src="logo/icon/note_icon.jpg" alt="noteLink">
 </a>
-<a href="https://twitter.com/yuuichiyo">
+<a href="https://twitter.com/yuuichiyo" target = "_blank">
  <img src="logo/icon/Twitter_icon.jpg" alt="TwitterLink">
 </a>
-<a href="https://weibo.com/yuuichiyo">
+<a href="https://weibo.com/yuuichiyo" target = "_blank">
  <img src="logo/icon/weibo_icon.jpg" alt="weiboLink">
 </a>
-<a href="https://www.youtube.com/channel/UCQ7aODvYQ7A4KRCZosbuv5Q/featured?disable_polymer=1">
+<a href="https://www.youtube.com/channel/UCQ7aODvYQ7A4KRCZosbuv5Q/featured?disable_polymer=1" target = "_blank">
  <img src="logo/icon/youtube_icon.jpg" alt="youtubeLink">
 </a>
 </div>
