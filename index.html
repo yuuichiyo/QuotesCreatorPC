@@ -80,9 +80,9 @@
 <main>
     <h1>Quotes Creator PC Version</h1>
     <p>本サイトはオリジナルの名言を制作するためのWebサイトとなります。</p>
-    <p>必要なものはあなたの写真（別のものでも大丈夫）とあなた自身の伝記に基づく名言（迷言でも可）です。</p>
+    <p>必要なものは写真と名言です。</p>
     <p>また、入力項目を記入していくことで、自動的に画像にあなたの名言とプロフィールを付け加えます。</p>
-    <p>作成されたオリジナルの名言はyoutube等で配信することで、たくさんの人と共有したいと考えています。</p>
+    
 
     <p>※注意　誹謗中傷、プライバシー侵害、名誉棄損、その他の迷惑行為や公共の不利益を被る内容につきましては、ご遠慮のほどお願いいたします。</p>
 
@@ -108,11 +108,9 @@
 <p>
     <label>
         <input type="radio" name="life" id="living"       onchange="onRadioButtonChange();"  checked>存命する
-        <input type="radio" name="life" value="desperate"   disabled>亡命する
     </label>
     <label>
         <input type="radio" name="life" id="noLiving"     onchange="onRadioButtonChange();"  >存命しない
-        <input type="radio" name="life" value="desperate"   disabled>亡命しない
     </label>
 
 </p>
@@ -161,8 +159,10 @@
 <!-- 終わり -->
 
 
+
+<!-- なぜか分からないけど、↓は必要不可欠 -->
 <p>
-    <label>画像の拡大縮小設定（挙動難解）
+    <label>画像の拡大縮小設定（しない）
 
 
     pW<select name="pw" id="pw"></select>
@@ -173,17 +173,10 @@
 
 <p>
 
-    // ↑横長の画像の場合、一桁の整数で縦横比を打ち込む。ただし、画像サイズに左右される。
-    <br>
-
-    // ↑正方形の画像の場合、pWに 5 前後、ただし画像サイズに左右される。
-     <br>
-    // ↑縦長の画像の場合、pWに 15 前後、ただし画像サイズに左右される。
-    <br>
+ 
 
 
 </p>
-
 <p>
     <label>
 <!-- Canvas上に画像を表示する -->

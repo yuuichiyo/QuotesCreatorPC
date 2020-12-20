@@ -32,6 +32,37 @@ for(let i = 1600; i <= 2100; i++) {
 }
 Die();
 
+// アップロードした画像の拡大縮小位置調整
+// 上まで持ってきたら、動いた
+function pW(){
+  const pw = document.getElementById('pw');
+document.createElement('option')
+for(let i = 1; i <= 20; i++) {
+  let option = document.createElement('option');
+  option.setAttribute('value',i);
+  option.innerHTML = i  ;
+  pw.appendChild(option);
+};
+}
+pW();
+
+function pH(){
+
+  const ph = document.getElementById('ph');
+
+document.createElement('option')
+for(let i = 1; i <= 20; i++) {
+  let option = document.createElement('option');
+  option.setAttribute('value',i);
+  option.innerHTML = i ;
+  ph.appendChild(option);
+};
+}
+pH();
+
+
+
+
 
 // File APIとCanvasでローカルの画像をアップロード→加工→ダウンロードする
 // <!-- File APIでアップロード -->
@@ -84,35 +115,70 @@ function canvasDraw(imgSrc) {
   img.src = uploadImgSrc;
   img.onload = function() {
     
+    // drawImageと格闘の記録
+    // ctx.drawImage(img,(0, 0, this.width * (canvasHeight / this.height), this.height * (canvasWidth / this.width));
+    // ctx.drawImage(img, 0, 0, this.width, this.height, 140, 60, 1000, 600);
 
-    var imgWidth = document.getElementById('pw').value;
-    var imgHeight = document.getElementById('ph').value;
+    // drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)横長の写真のみ対応
+    // ctx.drawImage(img, 0, 0, this.width, this.height, 
+    //   (canvasWidth-(this.width * (canvasHeight / this.height)/1.25))/2, 
+    //   (canvasHeight-(this.height * (canvasWidth / this.width)/1.25))/2, 
+    //   this.width * (canvasHeight / this.height)/1.25, 
+    //   this.height * (canvasWidth / this.width)/1.25 );
 
-    var	imgWidth = img.width, //画像の元の幅を取得
-					imgHeight = img.height, //画像の元の高さを取得
-					imgRate = imgWidth / imgHeight, //画像の比率を取得
-          imgPos = 0; //Canvas上での画像の位置を初期化
-          
-          if(imgRate >= 1){ //画像が横長のとき
-            imgPos = (120 - (120 * imgRate)) / 2; //横方向の画像位置を計算
-            ctx.drawImage(img, 130 ,10 , 1000, 1000 / imgRate); //Canvasに幅を基準に画像を描画
-          }else{ //画像が縦長のとき
-            imgPos = (120 - (120 / imgRate)) / 2; //縦方向の画像位置を計算
-            ctx.drawImage(img, 360, 10, 500, 500 / imgRate); //Canvasに高さを基準に画像を描画
-          }
-
-    // 2020/12/20 if文章で分岐させたい。そして一方の辺をautoで指定したい
-    
+// 正方形対応？
       // ctx.drawImage(img, 0, 0, this.width, this.height, 
-      //   Math.abs(canvasWidth-(this.width * (canvasHeight / this.height)/(1+0.1*portraitHeight)))/2, 
-      //   Math.abs(canvasHeight-(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth)))/2, 
-
-      //   (this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth)),(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth))
-  
-      //    );
-      
+      //   (canvasWidth-(this.width * (canvasHeight / this.height)/1.25))/2, 
+      //   (canvasHeight-(this.height * (canvasWidth / this.width)/2))/2, 
+      //   this.width * (canvasHeight / this.height)/1.25, 
+      //   this.height * (canvasWidth / this.width)/2 );
+    
         
+    
+  // 縦長対応予定? サイズの違いで不具合発生する
+    // ctx.drawImage(img, 0, 0, this.width, this.height, 
+    //   (canvasWidth-(this.width * (canvasHeight / this.height)/1))/2, 
+    //   (canvasHeight-(this.height * (canvasWidth / this.width)/2.5))/2, 
+    //   this.width * (canvasHeight / this.height)/1, 
+    //   this.height * (canvasWidth / this.width)/2.5 );
+  
+    // 一応x,yで拡大縮小可能、ただし面倒  横長はx<y, 縦長はx<y, 拡大は両方の数字を小さく、縮小は大きくする
+    // 442*600 →3,15 600*400 →6,4 1300*1300 →5,15 300*167→3.0,1.6 400*600→4,24 225*225→2.2,2.2*5 183*275→1.83,2.75
+    // 横長の画像はpWとpH÷100すればよい模様
+    // 正方形はどうやらpWとpHを100割った後、pwに×5すればよいっぽい、なんでか知らんけど
+    // 縦長185*272→1.85*10,2.72 194*259→1.94*10,2.59 1417*1919→1.417*10,1.919 3024*4032→3.024*8,4.032
+    // portraitWidth= 4.032/1.25;  
+    // portraitHeight= 3.024 /1.25;
+    
+    // ctx.drawImage(img, 0, 0, this.width, this.height, 
+    //   (canvasWidth-(this.width * (canvasHeight / this.height)/(1+0.1*portraitHeight)))/2, 
+    //   (canvasHeight-(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth)))/2, 
+    //   (this.width * (canvasHeight / this.height)/(1+0.1*portraitHeight)),(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth))
+    //    );
 
+    // portraitWidth= 806;  
+    // portraitHeight= 625;
+    
+    // ctx.drawImage(img, 0, 0, this.width, this.height, 
+    // Math.abs((canvasWidth-this.width)/2), 
+    //   Math.abs((canvasHeight-this.height)/2), 
+    //   this.width * (canvasHeight / this.height),
+    //   this.height * (canvasWidth / this.width)
+    //   );
+
+    var portraitWidth = document.getElementById('pw').value;
+    var portraitHeight = document.getElementById('ph').value;
+    
+ctx.drawImage(img, 0, 0, this.width, this.height, 
+      Math.abs(canvasWidth-(this.width * (canvasHeight / this.height)/(1+0.1*portraitHeight)))/2, 
+      Math.abs(canvasHeight-(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth)))/2, 
+
+    
+
+      (this.width * (canvasHeight / this.height)/(1+0.1*portraitHeight)),(this.height * (canvasWidth / this.width)/(1+0.1*portraitWidth))
+
+
+       );
 
       // 二日間に渡る 画像中央表示の挙動の調査結論
 // ↑横長なら一桁と小数点で縦横比を打ち込む
